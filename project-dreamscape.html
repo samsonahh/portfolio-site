@@ -252,9 +252,46 @@
 
               <div id="status-effects" class="project-highlight-target">
                 <h3 class="project-details__content-title">Status Effect System</h3>
+                <h4 class="project-details__content-subtitle">Goal</h4>
                 <p class="project-details__desc-para">
-                  Explanation of the status effect architecture using ScriptableObjects and the Strategy pattern for flexible, data-driven gameplay effects.
+                  I needed a system that could apply and manage buffs, debuffs, and passive effects for both players and enemies. 
+                  These effects needed to be modular, time-based, and optionally stackable.
                 </p>
+                <h4 class="project-details__content-subtitle">Solution</h4>
+                <p class="project-details__desc-para">
+                  I designed a modular component called EntityStatusEffector, which could be added to any entity. 
+                  Status Effects were implemented as ScriptableObjects using a shared base class: StatusEffectSO. 
+                  I also made two major subclasses for different timing behaviors, duration-based and tick-based. 
+                  Each status effect inherited behavior through many lifecycle methods, giving me full control in a designer-friendly ScriptableObject format. 
+                  This utilized the Strategy pattern, avoiding spaghetti code that would result from a large switch statement.
+                </p>
+                <div class="about__img-cont">
+                  <img src="./assets/png/dreamscape-status-effects-diagram.png" alt="Status effects diagram" class="about__img" />
+                    <div class="about__img-caption">
+                      Class diagram of status effects and inheritance structure.
+                    </div>
+                </div>
+                <h4 class="project-details__content-subtitle">Limitations</h4>
+                <p class="project-details__desc-para">
+                  Effects are stored by type, meaning each entity can only hold one instance of a given effect. 
+                  This means that you can't reuse the same effect type, but with different configs, 
+                  on one entity unless explicitly stacking and overriding.
+                </p>
+                <h4 class="project-details__content-subtitle">Outcome</h4>
+                <p class="project-details__desc-para">
+                  This system powered many unique passive abilities in the game, especially from our Aspects system. 
+                  Effects could be added or removed dynamically during runtime. 
+                  Designers could also easily tweak the configurations of these ScriptableObject status effects through the inspector.
+                </p>
+                <div class="about__img-cont">
+                  <img src="./assets/png/dreamscape-status-effects-bomb.png" alt="Bomb status effect scriptable object" class="about__img" />
+                  <img src="./assets/gif/dreamscape-bomb.gif" alt="Bomb status effect enemy" class="about__img" />
+                    <div class="about__img-caption">
+                      An example of the Bomb Elite status effect that is applied to elite enemies on spawn. 
+                      Bomb elites explode after death as shown in the GIF. 
+                      All Bomb Elite status effect settings are configurable in the editor.
+                    </div>
+                </div>
               </div>
             </div>
           </div>

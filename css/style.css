@@ -466,9 +466,14 @@ textarea {
   }
 
 .project-details__content {
-  padding: 8rem 0;
+    /* keep original top padding, reduce only bottom padding */
+    padding: 8rem 0 0rem; /* top right/left bottom */
   max-width: 90rem;
   margin: auto; }
+  @media only screen and (max-width: 37.5em) {
+    /* preserve top padding on small screens and reduce bottom */
+    .project-details__content { padding: 8rem 0 3rem; }
+  }
   .project-details__content-title {
     font-weight: 700;
     font-size: 2.8rem;
