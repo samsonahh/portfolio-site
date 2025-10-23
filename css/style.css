@@ -497,6 +497,14 @@ textarea {
     color: grey;
     margin-bottom: 2rem; }
 
+  /* Slightly smaller subtitle used for micro-headings inside project content (e.g. 'Goal') */
+  .project-details__content-subtitle {
+    font-weight: 700;
+    font-size: 2.0rem; /* slightly smaller than the main content title */
+    margin: 1rem 0 0.6rem; /* tighten spacing between subtitle and paragraph */
+    color: #222;
+  }
+
 .project-details__tools-used {
   margin: 0 0 7rem 0; }
   .project-details__tools-used-list {
@@ -511,6 +519,23 @@ textarea {
     border-radius: 5px;
     font-weight: 600;
     color: #777; }
+
+/* Prevent fixed header from covering anchored sections (e.g. #entities) */
+.project-highlight-target {
+  /* desktop header ~6rem (60px) plus small spacing */
+  scroll-margin-top: 8.5rem;
+}
+
+@media only screen and (max-width: 56.25em) {
+  /* smaller screens have taller header padding; reduce offset slightly */
+  .project-highlight-target { scroll-margin-top: 7.2rem; }
+}
+
+/* Fallback for older browsers: add top padding to target when :target is active */
+.project-highlight-target:target {
+  padding-top: 8.5rem;
+  margin-top: -8.5rem;
+}
 
 .project-details__links {
   margin: 0 0; }
@@ -794,7 +819,6 @@ a.link--underline:hover,
   height: auto;
   display: block;
   margin: 2.4rem 0 0;
-  border-radius: 6px;
   max-height: 60vh;
   object-fit: contain;
 }
@@ -849,6 +873,52 @@ a.link--underline:hover,
   color: #6f6f6f;               /* muted body color */
   font-size: 1.6rem;           /* consistent with other body text */
   line-height: 1.4;
+}
+
+/* Project Highlights divider */
+.project-highlights {
+  display: flex;
+  gap: 4rem;
+  margin: 3rem 0 4rem;
+}
+.project-highlight {
+  flex: 1 1 50%;
+  background: #fff; /* neutral background */
+  color: #222; /* dark text for contrast */
+  padding: 1.6rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  text-align: center;
+  border: 1px solid #e6e6e6; /* subtle gray border */
+}
+.project-highlight__title {
+  font-size: 1.8rem; /* slightly smaller */
+  margin-bottom: 1rem;
+  color: #222;
+}
+.project-highlight__gif {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  display: block;
+  margin: 0 auto 0.8rem;
+  border-radius: 6px;
+}
+.project-highlight__btn {
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+/* Make sure captions inside accent panels are readable */
+.project-highlight .about__img-caption {
+  color: #6f6f6f;
+  font-size: 1.4rem;
+  margin: 0.8rem 0 1.2rem;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .project-highlights { flex-direction: column; }
+  .project-highlight { width: 100%; }
 }
 
 .project-meta li {

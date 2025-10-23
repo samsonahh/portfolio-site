@@ -104,7 +104,7 @@
               Your browser does not support the video tag.
             </video>
           </div>
-          <div class="about__img-caption">Steam trailer for Project Dreamscape</div>
+          <div class="about__img-caption">Steam trailer for Project Dreamscape.</div>
           <div class="project-details__content-main">
             <div class="project-details__desc">
               <h3 class="project-details__content-title">Project Dreamscape - Overview</h3>
@@ -121,44 +121,141 @@
                   <li><strong>GitHub:</strong> <a href="https://github.com/StudioAspen/Project-Dreamscape-Aspen-2024-2025" class="link--underline" target="_blank" rel="noopener noreferrer">Link</a></li>
                 </ul>
               </p>
+              <h3 class="project-details__content-title">Technologies</h3>
+              <div class="skills">
+                <div class="skills__skill">C#</div>
+                <div class="skills__skill">Unity 2022</div>
+                <div class="skills__skill">GitHub</div>
+                <div class="skills__skill">Wwise</div>
+                <div class="skills__skill">Blender</div>
+                <div class="skills__skill">Agile Development</div>
+              </div>
               <h3 class="project-details__content-title">My Role</h3>
               <p class="project-details__desc-para">
                 As Programming Producer, 
                 I led the technical direction of core systems architecture and ensured scalable, 
                 designer-friendly tools were in place to support gameplay and content creation.
               </p>
-            </div>
-            <div class="project-details__tools-used">
-              <h3 class="project-details__content-title">Tools Used</h3>
-              <div class="skills">
-                <div class="skills__skill">HTML</div>
-                <div class="skills__skill">CSS</div>
-                <div class="skills__skill">JavaScript</div>
-                <div class="skills__skill">React</div>
-                <div class="skills__skill">SASS</div>
-                <div class="skills__skill">GIT</div>
-                <div class="skills__skill">Shopify</div>
-                <div class="skills__skill">Wordpress</div>
-                <div class="skills__skill">Google ADS</div>
-                <div class="skills__skill">Facebook Ads</div>
-                <div class="skills__skill">Android</div>
-                <div class="skills__skill">IOS</div>
+              <h3 class="project-details__content-title">Systems Engineering Highlights</h3>
+              <div class="project-highlights">
+                <div class="project-highlight" id="highlight-1">
+                  <h4 class="project-highlight__title">Entity System & Character Controller</h4>
+                  <img src="./assets/gif/dreamscape-entities-showcase.gif" alt="Dreamscape entities showcase GIF" class="project-highlight__gif" />
+                  <div class="about__img-caption">State Machines, SOLID Principles</div>
+                  <a href="#entities" class="btn btn--med btn--theme-inv project-highlight__btn">Read more</a>
+                </div>
+                <div class="project-highlight" id="highlight-2">
+                  <h4 class="project-highlight__title">Status Effect System</h4>
+                  <img src="./assets/gif/dreamscape-aspects-showcase.gif" alt="Dreamscape status effects showcase GIF" class="project-highlight__gif" />
+                  <div class="about__img-caption">ScriptableObjects, Strategy Pattern</div>
+                  <a href="#status-effects" class="btn btn--med btn--theme-inv project-highlight__btn">Read more</a>
+                </div>
               </div>
-            </div>
-            <div class="project-details__links">
-              <h3 class="project-details__content-title">See Live</h3>
-              <a
-                href="#"
-                class="btn btn--med btn--theme project-details__links-btn"
-                target="_blank"
-                >Live Link</a
-              >
-              <a
-                href="#"
-                class="btn btn--med btn--theme-inv project-details__links-btn"
-                target="_blank"
-                >Code Link</a
-              >
+
+              <div id="entities" class="project-highlight-target">
+                <h3 class="project-details__content-title">Entity System & Character Controller</h3>
+                <h4 class="project-details__content-subtitle">Goal</h4>
+                <p class="project-details__desc-para">
+                  I wanted to build a flexible system to manage players, enemies, and allies under a single framework.
+                </p>
+                <h4 class="project-details__content-subtitle">Solution</h4>
+                <p class="project-details__desc-para">
+                  I setup a powerful Entity base class to serve as the foundation for all character-like objects in the game. 
+                  To manage behavior, each entity maintained its own internal state machine. 
+                  I used C# Action events as interaction hooks within the Entity class. 
+                  This allowed dynamic behavior to be added or extended without modifying the core entity logic. 
+                  This Open-Closed approach created a modular and decoupled workflow, making the system more flexible and easier to maintain.
+                </p>
+                <div class="about__img-cont">
+                  <img src="./assets/png/dreamscape-entities-diagram.png" alt="Entity system diagram" class="about__img" />
+                    <div class="about__img-caption">
+                      Class diagram of entity inheritance structure.
+                    </div>
+                </div>
+                <div class="about__img-cont">
+                  <img src="./assets/png/dreamscape-entities-action.png" alt="Entity system action" class="about__img" />
+                    <div class="about__img-caption">
+                      One of the actions housed inside the Entity base class. 
+                      I made sure to always write system documentation compatible with intellisense for these actions, 
+                      making it clear for other developers.
+                    </div>
+                </div>
+                <h4 class="project-details__content-subtitle">The Evolution of Entity State Machine States</h4>
+                <p class="project-details__desc-para">
+                  My goal was to create designer and editor friendly states but my original approach had many flaws.
+                </p>
+                <h4 class="project-details__content-subtitle">Iteration 1: Pure C# State Classes</h4>
+                <p class="project-details__desc-para">
+                  <strong>Problems:</strong>
+                  <br>
+                  1. All variables lived in the massive Entity-inherited class, breaking encapsulation.
+                  <br>
+                  2. The inspector became very cluttered, making certain variables hard to find.
+                </p>
+                <div class="about__img-cont">
+                  <img src="./assets/png/dreamscape-entities-it1.png" alt="Entity system iteration 1" class="about__img" />
+                    <div class="about__img-caption">
+                      Cluttered monolith entity class containing variables from each state.
+                    </div>
+                </div>
+                <p class="project-details__desc-para">
+                  To solve these problems, I had to move variables and methods to their individual states, 
+                  utilizing the Single Responsibility Principle. 
+                  I turned the states into Monobehaviours for serialization and editor collapsible components.
+                </p>
+                <h4 class="project-details__content-subtitle">Iteration 2: Monobehaviour State Components</h4>
+                <p class="project-details__desc-para">
+                  <strong>Problems:</strong>
+                  <br>
+                  1. Huge memory overhead for each state since every entity carried 5+ states that do not fully use the functionality of Monobehaviours.
+                  <br>
+                  2. Every derived entity prefab needed manually added required state components, including ones from the super class.
+                </p>
+                <div class="about__img-cont">
+                  <img src="./assets/png/dreamscape-entities-it2.png" alt="Entity system iteration 2" class="about__img" />
+                    <div class="about__img-caption">
+                      Single Responsibility Principle with component-based states.
+                    </div>
+                </div>
+                <p class="project-details__desc-para">
+                  To address the Monobehaviour overhead, I reverted the states back to pure C# classes, 
+                  but with serialization instead. 
+                  This made designer and editor friendly collapsible dropdown config menus that looked very neat in the inspector.
+                </p>
+                <h4 class="project-details__content-subtitle">Final Iteration: Serialized Pure C# States</h4>
+                <div class="about__img-cont">
+                  <img src="./assets/png/dreamscape-entities-it3.png" alt="Entity system iteration 3" class="about__img" />
+                    <div class="about__img-caption">
+                      Reduced memory overhead with pure C# classes and neat collapsible state configs.
+                    </div>
+                </div>
+                <p class="project-details__desc-para">
+                  <strong>Remaining Challenges:</strong>
+                  <br>
+                  1. Inheritance conflict: Serialized inherited states would show as duplicates in the inspector.
+                  <br>
+                  2. Needed a custom editor script to clean up the inspector.
+                </p>
+                <h4 class="project-details__content-subtitle">Outcome</h4>
+                <p class="project-details__desc-para">
+                  While there are still problems with my current implementation of Entity states, 
+                  it does the job that it needs to for this project. I'm already happy that I was able to decouple state logic, 
+                  balance memory, and improve editor usability while building a powerful and scalable entity framework.
+                </p>
+                <div class="about__img-cont">
+                  <img src="./assets/gif/dreamscape-entities-walking.gif" alt="Entity system showcase" class="about__img" />
+                    <div class="about__img-caption">
+                      Entities (player and enemies) running around the world.
+                    </div>
+                </div>
+              </div>
+
+              <div id="status-effects" class="project-highlight-target">
+                <h3 class="project-details__content-title">Status Effect System</h3>
+                <p class="project-details__desc-para">
+                  Explanation of the status effect architecture using ScriptableObjects and the Strategy pattern for flexible, data-driven gameplay effects.
+                </p>
+              </div>
             </div>
           </div>
         </div>
