@@ -36,3 +36,22 @@ const headerLogoConatiner = document.querySelector('.header__logo-container')
 headerLogoConatiner.addEventListener('click', () => {
   location.href = 'index.html'
 })
+
+// Back to top button behavior
+const backToTopBtn = document.getElementById('backToTop')
+if (backToTopBtn) {
+  const showAfter = 300 // px scrolled before showing
+  const onScroll = () => {
+    if (window.scrollY > showAfter) backToTopBtn.classList.remove('d-none')
+    else backToTopBtn.classList.add('d-none')
+  }
+  window.addEventListener('scroll', onScroll)
+
+  backToTopBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  })
+
+  // initial check
+  onScroll()
+}
