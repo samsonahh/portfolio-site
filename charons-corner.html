@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Samson's Portfolio</title>
+    <meta name="description" content="Samson's Developer Portfolio Site" />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__content">
+        <div class="header__logo-container">
+          <div class="header__logo-img-cont">
+            <img
+              src="./assets/jpeg/samson-headshot.jpg"
+              alt="Samson Wu Logo Image"
+              class="header__logo-img"
+            />
+          </div>
+          <span class="header__logo-sub">Samson Wu</span>
+        </div>
+        <div class="header__main">
+          <ul class="header__links">
+            <li class="header__link-wrapper">
+              <a href="./index.html" class="header__link"> Home </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="./index.html#about" class="header__link">About </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="./index.html#projects" class="header__link">
+                Projects
+              </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="./index.html#contact" class="header__link"> Contact </a>
+            </li>
+          </ul>
+          <div class="header__main-ham-menu-cont">
+            <img
+              src="./assets/svg/ham-menu.svg"
+              alt="hamburger menu"
+              class="header__main-ham-menu"
+            />
+            <img
+              src="./assets/svg/ham-menu-close.svg"
+              alt="hamburger menu close"
+              class="header__main-ham-menu-close d-none"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="header__sm-menu">
+        <div class="header__sm-menu-content">
+          <ul class="header__sm-menu-links">
+            <li class="header__sm-menu-link">
+              <a href="./index.html"> Home </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="./index.html#about"> About </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="./index.html#projects"> Projects </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="./index.html#contact"> Contact </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    
+    <section class="project-details">
+      <div class="main-container">
+        <div class="project-details__content">
+          <!-- <div class="project-cs-hero__video-cont">
+            <video class="project-cs-hero__video" controls preload="metadata" onloadedmetadata="this.volume=0.15">
+              <source src="./assets/video/dreamscape-trailer.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="about__img-caption">Steam trailer for Project Dreamscape.</div> -->
+          <div class="project-details__content-main">
+            <div class="project-details__desc">
+              <img src="./assets/png/charons-corner-hub-concept.png" alt="Hub concept" class="about__img" style="border-radius: 6px;"/>
+                <div class="about__img-caption">
+                  Current concept of the hub in Charon's Corner.
+                </div>
+              <h3 class="project-details__content-title">Charon's Corner - Overview</h3>
+              <p class="project-details__desc-para">
+                Charon's Corner is a fast-paced 3D racer where Charon, the ferryman of death, bowls souls down lanes to reach their past lives.
+                <ul class="project-meta">
+                  <li><strong>Role:</strong> Programming Director</li>
+                  <li><strong>Platform:</strong> PC / Mac</li>
+                  <li><strong>Engine:</strong> Unity</li>
+                  <li><strong>Team Size:</strong> 80+</li>
+                  <li><strong>Duration:</strong> 2 months (Ongoing)</li>
+                  <li><strong>Build:</strong> Coming soon to Steam</li>
+                  <li><strong>GitHub:</strong> <a href="https://github.com/StudioAspen/Aspen-2025-2026" class="link--underline" target="_blank" rel="noopener noreferrer">Link</a></li>
+                </ul>
+              </p>
+              <h3 class="project-details__content-title">Technologies</h3>
+              <div class="skills">
+                <div class="skills__skill">C#</div>
+                <div class="skills__skill">Unity 6</div>
+                <div class="skills__skill">GitHub</div>
+                <div class="skills__skill">GitHub Actions</div>
+                <div class="skills__skill">Wwise</div>
+                <div class="skills__skill">Blender</div>
+                <div class="skills__skill">Agile Development</div>
+                <div class="skills__skill">CI/CD</div>
+              </div>
+              <h3 class="project-details__content-title">My Role</h3>
+              <p class="project-details__desc-para">
+                As Programming Director, I led the technical direction of core systems architecture and handled all of the DevOps behind the project. 
+                I also supported my team members and communicated across all departments through Agile development.
+              </p>
+              <h3 class="project-details__content-title">Systems Engineering Highlights</h3>
+              <div class="project-highlights">
+                <div class="project-highlight" id="highlight-1">
+                  <h4 class="project-highlight__title">Custom Editor Single Entry Point</h4>
+                  <img src="./assets/gif/charons-corner-sep-showcase.gif" alt="Charons corner single entry point showcase GIF" class="project-highlight__gif" />
+                  <div class="about__img-caption">Single Entry Point and Bootstrapping</div>
+                  <a href="#sep" class="btn btn--med btn--theme-inv project-highlight__btn">Read more</a>
+                </div>
+                <div class="project-highlight" id="highlight-2">
+                  <h4 class="project-highlight__title">Save System</h4>
+                  <img src="./assets/gif/charons-corner-save-showcase.gif" alt="Charons corner save showcase GIF" class="project-highlight__gif" />
+                  <div class="about__img-caption">Serialization, File System, Encryption</div>
+                  <a href="#save" class="btn btn--med btn--theme-inv project-highlight__btn">Read more</a>
+                </div>
+              </div>
+
+              <div id="sep" class="project-highlight-target">
+                <h3 class="project-details__content-title">Custom Editor Single Entry Point</h3>
+                <h4 class="project-details__content-subtitle">Goal</h4>
+                <p class="project-details__desc-para">
+                  WIP
+                </p>
+                <h4 class="project-details__content-subtitle">Solution</h4>
+                <p class="project-details__desc-para">
+                  WIP
+                </p>
+              </div>
+
+              <div id="save" class="project-highlight-target">
+                <h3 class="project-details__content-title">Save System</h3>
+                <h4 class="project-details__content-subtitle">Goal</h4>
+                <p class="project-details__desc-para">
+                  WIP
+                </p>
+                <h4 class="project-details__content-subtitle">Solution</h4>
+                <p class="project-details__desc-para">
+                  WIP
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="main-footer">
+      <div class="main-container">
+        <div class="main-footer__upper">
+          <div class="main-footer__row main-footer__row-1">
+            <h2 class="heading heading-sm main-footer__heading-sm">
+              <span>Socials</span>
+            </h2>
+            <div class="main-footer__social-cont">
+              <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/samsonahh/">
+                <img
+                  class="main-footer__icon"
+                  src="./assets/png/linkedin-ico.png"
+                  alt="icon"
+                />
+              </a>
+              <a target="_blank" rel="noreferrer" href="https://github.com/samsonahh">
+                <img
+                  class="main-footer__icon"
+                  src="./assets/png/github-ico.png"
+                  alt="icon"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="main-footer__row main-footer__row-2">
+            <h4 class="heading heading-sm text-lt">Samson Wu's Portfolio</h4>
+            <p class="main-footer__short-desc">
+              Don't forget to check out my projects!
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top d-none" aria-label="Go to top">&#8679;</button>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
