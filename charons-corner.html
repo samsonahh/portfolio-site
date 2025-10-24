@@ -101,7 +101,8 @@
                 </div>
               <h3 class="project-details__content-title">Charon's Corner - Overview</h3>
               <p class="project-details__desc-para">
-                Charon's Corner is a fast-paced 3D racer where Charon, the ferryman of death, bowls souls down lanes to reach their past lives.
+                Charon's Corner is a high-speed 3D cart-racing inspired project reimagining Greek Mythology's ferryman of death as a bowler who sends 
+                souls to the afterlife by bowling their skulls down a bowling lane.
                 <ul class="project-meta">
                   <li><strong>Role:</strong> Programming Director</li>
                   <li><strong>Platform:</strong> PC / Mac</li>
@@ -129,42 +130,101 @@
                 I also supported my team members and communicated across all departments through Agile development.
               </p>
               <h3 class="project-details__content-title">Systems Engineering Highlights</h3>
+              <p class="project-details__desc-para">
+                <strong>DISCLAIMER:</strong> This section is work in progress because of ongoing development.
+              </p>
               <div class="project-highlights">
                 <div class="project-highlight" id="highlight-1">
                   <h4 class="project-highlight__title">Custom Editor Single Entry Point</h4>
-                  <img src="./assets/gif/charons-corner-sep-showcase.gif" alt="Charons corner single entry point showcase GIF" class="project-highlight__gif" />
+                  <img src="./assets/png/charons-corner-bootstrap-screenshot.png" alt="Charons corner single entry point showcase GIF" class="project-highlight__gif" />
                   <div class="about__img-caption">Single Entry Point and Bootstrapping</div>
                   <a href="#sep" class="btn btn--med btn--theme-inv project-highlight__btn">Read more</a>
-                </div>
-                <div class="project-highlight" id="highlight-2">
-                  <h4 class="project-highlight__title">Save System</h4>
-                  <img src="./assets/gif/charons-corner-save-showcase.gif" alt="Charons corner save showcase GIF" class="project-highlight__gif" />
-                  <div class="about__img-caption">Serialization, File System, Encryption</div>
-                  <a href="#save" class="btn btn--med btn--theme-inv project-highlight__btn">Read more</a>
                 </div>
               </div>
 
               <div id="sep" class="project-highlight-target">
                 <h3 class="project-details__content-title">Custom Editor Single Entry Point</h3>
-                <h4 class="project-details__content-subtitle">Goal</h4>
-                <p class="project-details__desc-para">
-                  WIP
-                </p>
-                <h4 class="project-details__content-subtitle">Solution</h4>
-                <p class="project-details__desc-para">
-                  WIP
-                </p>
-              </div>
 
-              <div id="save" class="project-highlight-target">
-                <h3 class="project-details__content-title">Save System</h3>
                 <h4 class="project-details__content-subtitle">Goal</h4>
                 <p class="project-details__desc-para">
-                  WIP
+                  I wanted to enforce a <strong>Single Entry Point</strong> within the Unity Editor and not just in the final build. 
+                  This ensures that every time a programmer presses Play, the game always boots from a consistent starting point,  
+                  the <strong>Bootstrap</strong> scene, which initializes all core singletons and systems.
                 </p>
+                <p class="project-details__desc-para">
+                  Another goal was to make sure that other programmers could work safely in any scene 
+                  while still having access to the same core managers like the <strong>GameManager</strong>. 
+                  This prevented missing reference issues or dependency errors when testing non-buildlisted scenes.
+                </p>
+
                 <h4 class="project-details__content-subtitle">Solution</h4>
                 <p class="project-details__desc-para">
-                  WIP
+                  I developed a custom Editor script that hooks into Unity's 
+                  <code>EditorApplication.playModeStateChanged</code> event. 
+                  This script automatically handles scene switching and state restoration during Play and Edit Mode.
+                  <br>
+                  <strong>Flow: </strong>
+                  <br>
+                  1. Prompts the user to save unsaved scenes before entering Play Mode.
+                  <br>
+                  2. Switches to the <strong>Bootstrap</strong> scene, which contains all singleton initializations.
+                  <br>
+                  3. Remembers the developer's original scene and restores it when Play Mode ends.
+                </p>
+                
+                <video class="about__video" controls preload="metadata" onloadedmetadata="this.volume=0.15">
+                  <source src="./assets/video/charons-corner-sep-video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <div class="about__img-caption">
+                  The Editor automatically switches to the <strong>Bootstrap</strong> scene on Play, 
+                  ensuring consistent system initialization. When exiting Play mode, the Editor switches back to the original scene.
+                </div>
+
+                <h4 class="project-details__content-subtitle">Challenge #1: Addressable Scene Management</h4>
+                <p class="project-details__desc-para">
+                  Unity does not normally allow switching to scenes that aren't part of the build list, 
+                  which caused issues since the <strong>Bootstrap</strong> scene wasn't included. 
+                  To overcome this, I temporarily marked the scene as Addressable in the Editor, 
+                  allowing safe scene switching during Play Mode. 
+                  After exiting Play Mode, all scenes were reverted to their normal non-addressable state.
+                  Marking and unmarking addressable scenes dynamically had to be isolated to the Editor, 
+                  so it would never affect actual runtime builds.
+                </p>
+                <h4 class="project-details__content-subtitle">Challenge #2: Scene Save Enforcement</h4>
+                <p class="project-details__desc-para">
+                  Unity allows entering Play Mode from unsaved scenes, which would discard scene changes under this Bootstrap system. 
+                  I resolved this by forcing a save confirmation before continuing to Play Mode.
+                </p>
+                <div class="about__img-cont">
+                  <img src="./assets/png/charons-corner-bootstrap-save-confirm-screenshot.png" alt="Bootstrap save confirm screenshot" class="about__img" />
+                    <div class="about__img-caption">
+                      The forced save prompt when attempting to play from an unsaved scene.
+                    </div>
+                </div>
+                <h4 class="project-details__content-subtitle">Challenge #3: GameManager Initial State</h4>
+                <p class="project-details__desc-para">
+                  While testing individual levels in the Editor, I needed the <strong>GameManager</strong> to start in the correct state depending on which scene was loaded. 
+                  For example, bootstrapping directly into Level 1 should start in the <strong>Gameplay</strong> state instead of the default <strong>Title</strong> state. 
+                  To handle this, I implemented a <strong>BootstrapConfig</strong> ScriptableObject asset that maps each scene to its corresponding initial GameState using a dictionary. 
+                  During runtime, the <strong>BootstrapLoader</strong> checks this configuration to determine the proper starting state. 
+                  If a scene isn't defined in the config, the system defaults to the <strong>Gameplay</strong> state, ensuring proper initialization across all test and production scenes.
+                </p>
+                <div class="about__img-cont">
+                  <img src="./assets/png/charons-corner-bootstrap-config-screenshot.png" alt="Bootstrap config screenshot" class="about__img" />
+                    <div class="about__img-caption">
+                      BootstrapConfig ScriptableObject mapping each specified scene to its GameState. 
+                      If the bootstrapped scene doesn't have an entry in the config, the game defaults to <strong>Gameplay</strong> GameState.
+                    </div>
+                </div>
+
+                <h4 class="project-details__content-subtitle">Outcome</h4>
+                <p class="project-details__desc-para">
+                  This system standardized the testing workflow for the entire team. 
+                  Every Play session now starts from the same initialization pipeline, 
+                  ensuring consistency and preventing missing singleton issues. 
+                  Developers can work freely in any scene without worrying about setup, 
+                  while still maintaining the project's <strong>Single Entry Point</strong> principle.
                 </p>
               </div>
 

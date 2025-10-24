@@ -823,6 +823,17 @@ a.link--underline:hover,
   max-width: 1100px;
   height: auto;
   display: block;
+  margin: 0rem 0 0;
+  max-height: 60vh;
+  object-fit: contain;
+}
+
+/* Video variant that matches about__img styling */
+.about__video {
+  width: 100%;
+  max-width: 1100px;
+  height: auto;
+  display: block;
   margin: 2.4rem 0 0;
   max-height: 60vh;
   object-fit: contain;
@@ -1020,4 +1031,40 @@ a.link--underline:hover,
 
 @media only screen and (max-width: 37.5em) {
   .back-to-top { right: 1rem; bottom: 1.6rem; width: 3.6rem; height: 3.6rem; font-size: 1.8rem; }
+}
+
+/* Code styling: inline and block */
+code, kbd, samp {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+  background: rgba(0,0,0,0.04);
+  color: #0062b9;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  white-space: pre-wrap;
+}
+
+pre {
+  background: #0f1724;
+  color: #e6eef8;
+  padding: 1.6rem;
+  border-radius: 6px;
+  overflow: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  margin: 1.6rem 0;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* Ensure long inline code doesn't break layout */
+code {
+  word-break: break-word;
 }
