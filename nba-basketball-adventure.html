@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Samson's Portfolio</title>
+    <meta name="description" content="Samson's Developer Portfolio Site" />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__content">
+        <div class="header__logo-container">
+          <div class="header__logo-img-cont">
+            <img
+              src="./assets/jpeg/samson-headshot.jpg"
+              alt="Samson Wu Logo Image"
+              class="header__logo-img"
+            />
+          </div>
+          <span class="header__logo-sub">Samson Wu</span>
+        </div>
+        <div class="header__main">
+          <ul class="header__links">
+            <li class="header__link-wrapper">
+              <a href="./index.html" class="header__link"> Home </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="./index.html#about" class="header__link">About </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="./index.html#projects" class="header__link">
+                Projects
+              </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="./index.html#contact" class="header__link"> Contact </a>
+            </li>
+          </ul>
+          <div class="header__main-ham-menu-cont">
+            <img
+              src="./assets/svg/ham-menu.svg"
+              alt="hamburger menu"
+              class="header__main-ham-menu"
+            />
+            <img
+              src="./assets/svg/ham-menu-close.svg"
+              alt="hamburger menu close"
+              class="header__main-ham-menu-close d-none"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="header__sm-menu">
+        <div class="header__sm-menu-content">
+          <ul class="header__sm-menu-links">
+            <li class="header__sm-menu-link">
+              <a href="./index.html"> Home </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="./index.html#about"> About </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="./index.html#projects"> Projects </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="./index.html#contact"> Contact </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    
+    <section class="project-details">
+      <div class="main-container">
+        <div class="project-details__content">
+          <div class="project-cs-hero__video-cont">
+            <video class="project-cs-hero__video" controls preload="metadata" onloadedmetadata="this.volume=0.15">
+              <source src="./assets/video/nba-basketball-adventure-showcase.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="about__img-caption">
+            Gameplay video showcasing NBA Basketball Adventure.
+          </div>
+          <div class="project-details__content-main">
+            <div class="project-details__desc">
+              <h3 class="project-details__content-title">NBA Basketball Adventure - Overview</h3>
+              <p class="project-details__desc-para">
+                An official NBA basketball-themed simulator Roblox game. 
+                Shoot basketballs to defeat opponents and collect chips to unlock new powerups and upgrade 
+                your basketballs as you platform through each level. This game was developed by Floor 84 Studio 
+                in collaboration with NBA.
+                <ul class="project-meta">
+                <li><strong>Role:</strong> Programmer</li>
+                <li><strong>Platform:</strong> PC / Mobile</li>
+                <li><strong>Engine:</strong> Roblox Studio</li>
+                <li><strong>Team Size:</strong> ~10</li>
+                <li><strong>Duration:</strong> 2 months</li>
+                <li><strong>Build:</strong> <a href="https://www.roblox.com/games/130069736674961/NBA-Basketball-Adventure" class="link--underline" target="_blank" rel="noopener noreferrer">Roblox</a></li>
+                <li><strong>Source:</strong> Private <a href="https://f84.com/" class="link--underline" target="_blank" rel="noopener noreferrer">(Floor 84 Studio)</a></li>
+              </ul>
+              </p>
+              <h3 class="project-details__content-title">Technologies</h3>
+              <div class="skills">
+                <div class="skills__skill">Lua</div>
+                <div class="skills__skill">Roblox Studio</div>
+                <div class="skills__skill">GitLab</div>
+                <div class="skills__skill">Rojo</div>
+                <div class="skills__skill">Jira</div>
+              </div>
+              <h3 class="project-details__content-title">My Role</h3>
+              <p class="project-details__desc-para">
+                As a Software Engineer Intern, I programmed several features with mentorship from the Creative Director.
+              </p>
+              <h3 class="project-details__content-title">My Contributions</h3>
+              <p class="project-details__desc-para">
+                <strong>DISCLAIMER:</strong> I'm not allowed to discuss the specifics about the code or implementation due to NDA restrictions.
+              </p>
+              
+              <div class="project-highlight" id="highlight-1">
+                <h4 class="project-highlight__title">Team Assets Swapping</h4>
+                <video class="project-cs-hero__video" controls preload="metadata" onloadedmetadata="this.volume=0.15">
+                  <source src="./assets/video/nba-basketball-adventure-team-lockers.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <div class="about__img-caption">
+                  Assets and UGC are swapped according to user preferences. 
+                  All team-specific aspects of the map are changed without delay.
+                </div>
+              </div>
+
+              <div class="project-highlight" id="highlight-2">
+                <h4 class="project-highlight__title">Drip Rewards</h4>
+                <video class="project-cs-hero__video" controls preload="metadata" onloadedmetadata="this.volume=0.15">
+                  <source src="./assets/video/nba-basketball-adventure-drip.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <div class="about__img-caption">
+                  Shards are gradually dropped as the player depletes the opponent's health. 
+                  This keeps the player engaged and committed to finishing the opponent.
+                </div>
+              </div>
+
+              <div class="project-highlight" id="highlight-3">
+                <h4 class="project-highlight__title">Portals</h4>
+                <video class="project-cs-hero__video" controls preload="metadata" onloadedmetadata="this.volume=0.15">
+                  <source src="./assets/video/nba-basketball-adventure-portals.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <div class="about__img-caption">
+                  Portals are scattered throughout the map for quick access to the hub. 
+                  The hub also has a portal that sends the player to their previous zone.
+                </div>
+              </div>
+
+              <div class="project-highlights">
+                <div class="project-highlight" id="highlight-4">
+                  <h4 class="project-highlight__title">Locked Vending Machines</h4>
+                  <img src="./assets/png/nba-basketball-adventure-vending-machines.png" alt="Basketball adventure vending machines" class="project-highlight__gif" />
+                  <div class="about__img-caption">
+                    Different tiered gacha vending machines locked based on progression. 
+                    Prevents players from purchasing stronger basketballs meant for later stages of the game.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="main-footer">
+      <div class="main-container">
+        <div class="main-footer__upper">
+          <div class="main-footer__row main-footer__row-1">
+            <h2 class="heading heading-sm main-footer__heading-sm">
+              <span>Socials</span>
+            </h2>
+            <div class="main-footer__social-cont">
+              <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/samsonahh/">
+                <img
+                  class="main-footer__icon"
+                  src="./assets/png/linkedin-ico.png"
+                  alt="icon"
+                />
+              </a>
+              <a target="_blank" rel="noreferrer" href="https://github.com/samsonahh">
+                <img
+                  class="main-footer__icon"
+                  src="./assets/png/github-ico.png"
+                  alt="icon"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="main-footer__row main-footer__row-2">
+            <h4 class="heading heading-sm text-lt">Samson Wu's Portfolio</h4>
+            <p class="main-footer__short-desc">
+              Don't forget to check out my projects!
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top d-none" aria-label="Go to top">&#8679;</button>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
