@@ -502,6 +502,24 @@ textarea {
     color: grey;
     margin-bottom: 2rem; }
 
+  /* Restore bullets for specific project lists that reuse paragraph styles
+     (we globally disable list-style earlier; enable discs for this class only) */
+  ul.project-details__desc-para {
+    list-style-type: disc;
+    list-style-position: outside;
+    margin: 0 0 2rem 1.6rem; /* keep paragraph spacing but indent for bullets */
+    padding-left: 0; /* left indent handled by margin */
+  }
+  ul.project-details__desc-para li {
+    margin-bottom: 0.6rem; /* small gap between items */
+  }
+  /* Ensure bullets show even though we reset lists site-wide */
+  ul.project-details__desc-para li {
+    list-style-type: disc;
+    display: list-item; /* ensure marker is rendered */
+    margin-left: 0; /* controlled on the ul for consistent spacing */
+  }
+
   /* Slightly smaller subtitle used for micro-headings inside project content (e.g. 'Goal') */
   .project-details__content-subtitle {
     font-weight: 700;
