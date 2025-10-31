@@ -932,8 +932,8 @@ a.link--underline:hover,
 }
 .project-highlight__gif {
   width: 100%;
-  /* allow the GIF/image to fill its highlight container (matches videos) */
-  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
   height: auto;
   display: block;
   margin: 0 auto 0.8rem;
