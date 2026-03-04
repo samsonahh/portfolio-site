@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Samson's Portfolio</title>
+    <meta name="description" content="Samson's Developer Portfolio Site" />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__content">
+        <div class="header__logo-container">
+          <div class="header__logo-img-cont">
+            <img
+              src="./assets/jpeg/samson-headshot.jpg"
+              alt="Samson Wu Logo Image"
+              class="header__logo-img"
+            />
+          </div>
+          <span class="header__logo-sub">Samson Wu</span>
+        </div>
+        <div class="header__main">
+          <ul class="header__links">
+            <li class="header__link-wrapper">
+              <a href="./index.html#projects" class="header__link">Projects</a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="./index.html#about" class="header__link">About </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="./index.html#contact" class="header__link"> Contact </a>
+            </li>
+          </ul>
+          <div class="header__main-ham-menu-cont">
+            <img
+              src="./assets/svg/ham-menu.svg"
+              alt="hamburger menu"
+              class="header__main-ham-menu"
+            />
+            <img
+              src="./assets/svg/ham-menu-close.svg"
+              alt="hamburger menu close"
+              class="header__main-ham-menu-close d-none"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="header__sm-menu">
+        <div class="header__sm-menu-content">
+          <ul class="header__sm-menu-links">
+            <li class="header__sm-menu-link">
+              <a href="./index.html#projects"> Projects </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="./index.html#about"> About </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="./index.html#contact"> Contact </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <section class="project-details">
+      <div class="main-container">
+        <div class="project-details__content">
+          <div class="project-cs-hero__video-cont">
+            <video class="project-cs-hero__video gallery-media" controls preload="metadata" onloadedmetadata="this.volume=0.15">
+              <source src="./assets/video/chud-and-chum-gameplay.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="about__img-caption">Gameplay clip from Chud and Chum.</div>
+
+          <div class="project-details__content-main">
+            <div class="project-details__desc">
+              <h3 class="project-details__content-title">Chud and Chum - Overview</h3>
+              <p class="project-details__desc-para">
+                Chud and Chum is a funny 2-player local co-op fighting game where fish disguise themselves as humans using masks.
+                Rip off the opponent's mask and turn them back into a regular fish. The game was made at
+                <strong>NYU Game Center</strong> for <strong>Global Game Jam 2026</strong>, where the theme was <strong>Mask</strong>.
+              </p>
+              <ul class="project-meta">
+                <li><strong>Role:</strong> Programmer</li>
+                <li><strong>Platform:</strong> PC / Web</li>
+                <li><strong>Engine:</strong> Unity</li>
+                <li><strong>Team Size:</strong> 6</li>
+                <li><strong>Duration:</strong> 3 days</li>
+                <li><strong>Build:</strong> <a href="https://mariovq.itch.io/chud-and-chum" class="link--underline" target="_blank" rel="noopener noreferrer">Itch.io</a></li>
+                <li><strong>Source:</strong> <a href="https://github.com/samsonahh/ggj-2026-mask" class="link--underline" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+              </ul>
+
+              <h3 class="project-details__content-title">Technologies</h3>
+              <div class="skills">
+                <div class="skills__skill">C#</div>
+                <div class="skills__skill">Unity</div>
+                <div class="skills__skill">GitHub</div>
+              </div>
+
+              <h3 class="project-details__content-title">My Role</h3>
+              <p class="project-details__desc-para">
+                As a programmer on this game jam project, I primarily built movement, combat, and input handling,
+                and implemented most of the gameplay and UI juice in-game. The mashing mechanic really got people
+                riled up when they played, and developing the game with friends was a lot of fun.
+              </p>
+
+              <h3 class="project-details__content-title">Gallery</h3>
+
+              <div class="about__img-cont">
+                <img src="./assets/png/chud-and-chum-splash2.png" alt="Chud and Chum splash art" class="about__img gallery-media" />
+                <div class="about__img-caption">Chud and Chum splash art.</div>
+              </div>
+
+              <video class="about__video gallery-media" controls preload="metadata" onloadedmetadata="this.volume=0.15">
+                <source src="./assets/video/chud-and-chum-unreleased.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <div class="about__img-caption">Instagram reel clip of Chud and Chum at Unreleased Games Arcade 2026.</div>
+
+              <video class="about__video gallery-media" controls preload="metadata" onloadedmetadata="this.volume=0.15">
+                <source src="./assets/video/chud-and-chum-ggj.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <div class="about__img-caption">Gameplay clip from Global Game Jam 2026 at NYU Game Center.</div>
+
+              <div class="about__img-cont">
+                <img src="./assets/jpeg/chud-and-chum-unreleased-1.jpg" alt="Players trying Chud and Chum at an event" class="about__img gallery-media" />
+                <div class="about__img-caption">Students playing Chud and Chum at Unreleased Games Arcade 2026.</div>
+              </div>
+
+              <div class="about__img-cont">
+                <img src="./assets/jpeg/chud-and-chum-unreleased-2.jpg" alt="Players enjoying Chud and Chum" class="about__img gallery-media" />
+                <div class="about__img-caption">Students playing Chud and Chum at Unreleased Games Arcade 2026. That's me on the right!</div>
+              </div>
+
+              <div class="about__img-cont">
+                <img src="./assets/jpeg/chud-and-chum-unreleased-3.jpg" alt="Players gathered around Chud and Chum" class="about__img gallery-media" />
+                <div class="about__img-caption">Students playing Chud and Chum at Unreleased Games Arcade 2026.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="main-footer">
+      <div class="main-container">
+        <div class="main-footer__upper">
+          <div class="main-footer__row main-footer__row-1">
+            <h2 class="heading heading-sm main-footer__heading-sm">
+              <span>Socials</span>
+            </h2>
+            <div class="main-footer__social-cont">
+              <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/samsonahh/">
+                <img class="main-footer__icon" src="./assets/png/linkedin-ico.png" alt="icon" />
+              </a>
+              <a target="_blank" rel="noreferrer" href="https://github.com/samsonahh">
+                <img class="main-footer__icon" src="./assets/png/github-ico.png" alt="icon" />
+              </a>
+            </div>
+          </div>
+          <div class="main-footer__row main-footer__row-2">
+            <h4 class="heading heading-sm text-lt">Samson Wu's Portfolio</h4>
+            <p class="main-footer__short-desc">Don't forget to check out my projects!</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top d-none" aria-label="Go to top">&#8679;</button>
+
+    <script src="./index.js"></script>
+  </body>
+</html>

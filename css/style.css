@@ -873,6 +873,11 @@ a.link--underline:hover,
   object-fit: contain;
 }
 
+.gallery-media {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
 .about__img-caption {
   display: block;
   text-align: center;
