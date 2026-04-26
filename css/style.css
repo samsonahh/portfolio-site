@@ -871,6 +871,9 @@ a.link--underline:hover,
   margin: 2.4rem 0 0;
   max-height: 60vh;
   object-fit: contain;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
 }
 
 .gallery-media {
