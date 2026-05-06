@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Samson's Portfolio</title>
+    <meta name="description" content="Samson's Developer Portfolio Site" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__content">
+        <div class="header__logo-container">
+          <div class="header__logo-img-cont">
+            <img
+              src="./assets/jpeg/samson-headshot.jpg"
+              alt="Samson Wu Logo Image"
+              class="header__logo-img"
+            />
+          </div>
+          <span class="header__logo-sub">Samson Wu</span>
+        </div>
+        <div class="header__main">
+          <ul class="header__links">
+            <li class="header__link-wrapper">
+              <a href="./index.html#projects" class="header__link">
+                Projects
+              </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="./index.html#about" class="header__link">About </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="./index.html#contact" class="header__link"> Contact </a>
+            </li>
+          </ul>
+          <div class="header__main-ham-menu-cont">
+            <img
+              src="./assets/svg/ham-menu.svg"
+              alt="hamburger menu"
+              class="header__main-ham-menu"
+            />
+            <img
+              src="./assets/svg/ham-menu-close.svg"
+              alt="hamburger menu close"
+              class="header__main-ham-menu-close d-none"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="header__sm-menu">
+        <div class="header__sm-menu-content">
+          <ul class="header__sm-menu-links">
+            <li class="header__sm-menu-link">
+              <a href="./index.html#projects"> Projects </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="./index.html#about"> About </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="./index.html#contact"> Contact </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <section class="project-details">
+      <div class="main-container">
+        <div class="project-details__content">
+          <div class="project-cs-hero__video-cont">
+            <video
+              class="project-cs-hero__video"
+              controls
+              preload="metadata"
+            >
+              <source src="./assets/video/maple-rhapsody-lith-normal-gameplay.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="about__img-caption">Gameplay footage for Maple Rhapsody's "Lith Harbor Normal" map. Mapped by Daquan Griffith.</div>
+
+          <div class="project-details__content-main">
+            <div class="project-details__desc">
+              <h3 class="project-details__content-title">Maple Rhapsody - Overview</h3>
+              <p class="project-details__desc-para">
+                Maple Rhapsody is a rhythm-driven action experience where MapleStory combat meets musical flow.
+                Tap, hold, and use class abilities as you follow the Note Guide, defeat musical enemies,
+                and chain combos to climb the global leaderboard. 
+                Play through 3 original Maplestory soundtracks and each of their 3 difficulties for a total of 9 beatmaps.
+                This game was made as part of Nexon's Maplestory Worlds Creator's Workshop (Cohort 3).
+              </p>
+              <ul class="project-meta">
+                <li><strong>Role:</strong> Programmer</li>
+                <li><strong>Platform:</strong> PC / Mobile</li>
+                <li><strong>Engine:</strong> Maplestory Worlds (Lua)</li>
+                <li><strong>Team Size:</strong> 2</li>
+                <li><strong>Duration:</strong> 3 months</li>
+                <li><strong>Build:</strong> <a href="https://maplestoryworlds.nexon.com/en/play/ab0a1b4e6c7d43cdb23bbe13791aa2c2/" class="link--underline" target="_blank" rel="noopener noreferrer">Maplestory Worlds</a></li>
+                <li><strong>Source:</strong> Private</li>
+              </ul>
+
+              <h3 class="project-details__content-title">Technologies</h3>
+              <div class="skills">
+                <div class="skills__skill">Lua</div>
+                <div class="skills__skill">Python</div>
+                <div class="skills__skill">GitHub</div>
+                <div class="skills__skill">Maplestory Worlds</div>
+              </div>
+
+              <h3 class="project-details__content-title">My Role</h3>
+              <p class="project-details__desc-para">
+                As the sole programmer for this game, I was responsible for learning the Maplestory Worlds engine and its Lua 
+                framework from scratch. I developed every feature in the game from UI, gameplay, shop, leaderboard, networking, and etc. 
+                I also designed the mapping workflow that allowed us to easily add multiple beatmaps.
+              </p>
+
+              <h3 class="project-details__content-title">Showcase</h3>
+              <div class="project-highlights">
+                <div class="project-highlight" id="highlight-1">
+                  <h4 class="project-highlight__title">Shop and Cosmetics</h4>
+                  <video class="project-cs-hero__video" controls preload="metadata" onloadedmetadata="this.volume=0.15">
+                    <source src="./assets/video/maple-rhapsody-shop-showcase.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  <div class="about__img-caption">
+                    Shop and cosmetics showcase. 
+                    Players can purchase cosmetics with earned in-game currency or top up using Maplestory World Coins. 
+                    The blue cosmetics are seasonal items featured in the winter special release.
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-highlights">
+                <div class="project-highlight" id="highlight-2">
+                  <h4 class="project-highlight__title">Level Select and Leaderboards</h4>
+                  <video class="project-cs-hero__video" controls preload="metadata" onloadedmetadata="this.volume=0.15">
+                    <source src="./assets/video/maple-rhapsody-level-select-showcase.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  <div class="about__img-caption">Browse 9 beatmaps across 3 difficulties with global leaderboards for each. Customize your character skin before playing.</div>
+                </div>
+              </div>
+
+              <div class="project-highlights">
+                <div class="project-highlight" id="highlight-3">
+                  <h4 class="project-highlight__title">Beatmap - Kerning City</h4>
+                  <video class="project-cs-hero__video" controls preload="metadata" onloadedmetadata="this.volume=0.15">
+                    <source src="./assets/video/maple-rhapsody-kerning-normal-gameplay.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  <div class="about__img-caption">Kerning City Normal difficulty gameplay. Mapped by Daquan Griffith.</div>
+                </div>
+              </div>
+
+              <div class="project-highlights">
+                <div class="project-highlight" id="highlight-4">
+                  <h4 class="project-highlight__title">Beatmap - Horntail</h4>
+                  <video class="project-cs-hero__video" controls preload="metadata" onloadedmetadata="this.volume=0.15">
+                    <source src="./assets/video/maple-rhapsody-horntail-easy-gameplay.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  <div class="about__img-caption">Horntail Easy difficulty gameplay. Mapped by Daquan Griffith.</div>
+                </div>
+              </div>
+
+              <h3 class="project-details__content-title">Engineering Highlights</h3>
+              <div class="project-highlights">
+                <div class="project-highlight" id="highlight-5">
+                  <h4 class="project-highlight__title">Mapping Workflow</h4>
+                  <img src="./assets/png/maple-rhapsody-mapping.png" alt="Mapping workflow showcase" class="project-highlight__gif" />
+                  <div class="about__img-caption">Working around the limitations of the Maplestory Worlds engine to make mapping easier</div>
+                  <a href="#mapping-workflow" class="btn btn--med btn--theme-inv project-highlight__btn">Read more</a>
+                </div>
+                <div class="project-highlight" id="highlight-6">
+                  <h4 class="project-highlight__title">Anticheat</h4>
+                  <img src="./assets/png/maple-rhapsody-anticheat.png" alt="Anticheat system showcase" class="project-highlight__gif" />
+                  <div class="about__img-caption">Leaderboard integrity and server-side cheat prevention in a multiplayer game</div>
+                  <a href="#anticheat" class="btn btn--med btn--theme-inv project-highlight__btn">Read more</a>
+                </div>
+              </div>
+
+              <div id="mapping-workflow" class="project-highlight-target">
+                <h3 class="project-details__content-title">Mapping Workflow</h3>
+                <p class="project-details__desc-para">WIP, writeup coming soon.</p>
+              </div>
+
+              <div id="anticheat" class="project-highlight-target">
+                <h3 class="project-details__content-title">Anticheat</h3>
+                <p class="project-details__desc-para">WIP, writeup coming soon.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="main-footer">
+      <div class="main-container">
+        <div class="main-footer__upper">
+          <div class="main-footer__row main-footer__row-1">
+            <h2 class="heading heading-sm main-footer__heading-sm">
+              <span>Socials</span>
+            </h2>
+            <div class="main-footer__social-cont">
+              <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/samsonahh/">
+                <img
+                  class="main-footer__icon"
+                  src="./assets/png/linkedin-ico.png"
+                  alt="icon"
+                />
+              </a>
+              <a target="_blank" rel="noreferrer" href="https://github.com/samsonahh">
+                <img
+                  class="main-footer__icon"
+                  src="./assets/png/github-ico.png"
+                  alt="icon"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="main-footer__row main-footer__row-2">
+            <h4 class="heading heading-sm text-lt">Samson Wu's Portfolio</h4>
+            <p class="main-footer__short-desc">Don't forget to check out my projects!</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top d-none" aria-label="Go to top">&#8679;</button>
+
+    <script src="./index.js"></script>
+  </body>
+</html>

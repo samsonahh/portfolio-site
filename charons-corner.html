@@ -17,7 +17,7 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body class="charons-corner-page">
     <header class="header">
       <div class="header__content">
         <div class="header__logo-container">
@@ -97,7 +97,7 @@
                 <ul class="project-meta">
                   <li><strong>Role:</strong> Programming Director</li>
                   <li><strong>Platform:</strong> PC / Mac</li>
-                  <li><strong>Engine:</strong> Unity</li>
+                  <li><strong>Engine:</strong> Unity (C#)</li>
                   <li><strong>Team Size:</strong> 80+</li>
                   <li><strong>Duration:</strong> 7 months (Ongoing)</li>
                   <li><strong>Build:</strong> <a href="https://wiktork01.itch.io/charons-corner" class="link--underline" target="_blank" rel="noopener noreferrer">Itch.io</a>(Coming soon to Steam)</li>
@@ -122,10 +122,11 @@
               <ul class="project-details__desc-para">
                 <li>Auto documentation generation through DocFX</li>
                 <li>Custom single entry point system</li>
-                <li>InputManager supporting controllers and keyboard + mouse</li>
+                <li>Input manager supporting controllers and keyboard + mouse</li>
                 <li>Save system</li>
                 <li>UI framework</li>
                 <li>Settings menu framework</li>
+                <li>Audio manager</li>
               </ul>
               <h3 class="project-details__content-title">Gameplay</h3>
               <video class="about__video" controls preload="metadata" onloadedmetadata="this.volume=0.15">
@@ -133,16 +134,33 @@
                 Your browser does not support the video tag.
               </video>
               <div class="about__img-caption">Current gameplay footage as of 4/24/2026.</div>
-              <h3 class="project-details__content-title">Highlights</h3>
+              <h3 class="project-details__content-title">Engineering Highlights</h3>
               <p class="project-details__desc-para">
                 <strong>DISCLAIMER:</strong> This section is work in progress because of ongoing development. More to come as we approach release!
               </p>
+
               <div class="project-highlights">
                 <div class="project-highlight" id="highlight-1">
                   <h4 class="project-highlight__title">Custom Editor Single Entry Point</h4>
                   <img src="./assets/png/charons-corner-bootstrap-screenshot.png" alt="Charons corner single entry point showcase" class="project-highlight__gif" />
                   <div class="about__img-caption">Single Entry Point and Bootstrapping</div>
                   <a href="#sep" class="btn btn--med btn--theme-inv project-highlight__btn">Read more</a>
+                </div>
+
+                <div class="project-highlight" id="highlight-2">
+                  <h4 class="project-highlight__title">UI Framework</h4>
+                  <img src="./assets/png/charons-corner-ui-framework.png" alt="" class="project-highlight__gif" />
+                  <div class="about__img-caption">Stack-based UI</div>
+                  <a href="#ui-framework" class="btn btn--med btn--theme-inv project-highlight__btn">Read more</a>
+                </div>
+              </div>
+
+              <div class="project-highlights project-highlights--centered">
+                <div class="project-highlight" id="highlight-3">
+                  <h4 class="project-highlight__title">Save System</h4>
+                  <img src="./assets/png/charons-corner-save-system.png" alt="" class="project-highlight__gif" />
+                  <div class="about__img-caption">Better PlayerPrefs with editor tooling and more serialized data structures</div>
+                  <a href="#save-system" class="btn btn--med btn--theme-inv project-highlight__btn">Read more</a>
                 </div>
               </div>
 
@@ -230,6 +248,16 @@
                   Developers can work freely in any scene without worrying about setup, 
                   while still maintaining the project's <strong>Single Entry Point</strong> principle.
                 </p>
+              </div>
+
+              <div id="ui-framework" class="project-highlight-target">
+                <h3 class="project-details__content-title">UI Framework</h3>
+                <p class="project-details__desc-para">WIP, writeup coming soon.</p>
+              </div>
+
+              <div id="save-system" class="project-highlight-target">
+                <h3 class="project-details__content-title">Save System</h3>
+                <p class="project-details__desc-para">WIP, writeup coming soon.</p>
               </div>
 
             </div>
