@@ -99,7 +99,7 @@
                   <li><strong>Platform:</strong> PC / Mac</li>
                   <li><strong>Engine:</strong> Unity (C#)</li>
                   <li><strong>Team Size:</strong> 80+</li>
-                  <li><strong>Duration:</strong> 7 months (Ongoing)</li>
+                  <li><strong>Duration:</strong> 9 months</li>
                   <li><strong>Build:</strong> <a href="https://wiktork01.itch.io/charons-corner" class="link--underline" target="_blank" rel="noopener noreferrer">Itch.io</a>(Coming soon to Steam)</li>
                   <li><strong>Source:</strong> <a href="https://github.com/StudioAspen/Aspen-2025-2026" class="link--underline" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                 </ul>
@@ -135,9 +135,6 @@
               </video>
               <div class="about__img-caption">Current gameplay footage as of 4/24/2026.</div>
               <h3 class="project-details__content-title">Engineering Highlights</h3>
-              <p class="project-details__desc-para">
-                <strong>DISCLAIMER:</strong> This section is work in progress because of ongoing development. More to come as we approach release!
-              </p>
 
               <div class="project-highlights">
                 <div class="project-highlight" id="highlight-1">
@@ -147,21 +144,6 @@
                   <a href="#sep" class="btn btn--med btn--theme-inv project-highlight__btn">Read more</a>
                 </div>
 
-                <div class="project-highlight" id="highlight-2">
-                  <h4 class="project-highlight__title">UI Framework</h4>
-                  <img src="./assets/png/charons-corner-ui-framework.png" alt="" class="project-highlight__gif" />
-                  <div class="about__img-caption">Stack-based UI</div>
-                  <a href="#ui-framework" class="btn btn--med btn--theme-inv project-highlight__btn">Read more</a>
-                </div>
-              </div>
-
-              <div class="project-highlights project-highlights--centered">
-                <div class="project-highlight" id="highlight-3">
-                  <h4 class="project-highlight__title">Save System</h4>
-                  <img src="./assets/png/charons-corner-save-system.png" alt="" class="project-highlight__gif" />
-                  <div class="about__img-caption">Better PlayerPrefs with editor tooling and more serialized data structures</div>
-                  <a href="#save-system" class="btn btn--med btn--theme-inv project-highlight__btn">Read more</a>
-                </div>
               </div>
 
               <div id="sep" class="project-highlight-target">
@@ -250,14 +232,23 @@
                 </p>
               </div>
 
-              <div id="ui-framework" class="project-highlight-target">
-                <h3 class="project-details__content-title">UI Framework</h3>
-                <p class="project-details__desc-para">WIP, writeup coming soon.</p>
-              </div>
-
-              <div id="save-system" class="project-highlight-target">
-                <h3 class="project-details__content-title">Save System</h3>
-                <p class="project-details__desc-para">WIP, writeup coming soon.</p>
+              <div class="project-highlight-target">
+                <h3 class="project-details__content-title">Reflection</h3>
+                <p class="project-details__desc-para">
+                  While the scene-based bootstrap system worked well initially, 
+                  through iteration we discovered a simpler and more performant approach for the editor. 
+                  Instead of loading the entire Bootstrap scene and then switching to the target scene, 
+                  we evolved the solution to prespawn a Bootstrap prefab containing all singleton managers and initializers before the scene loads. 
+                  This eliminated unnecessary scene load times and reduced complexity while maintaining the same Single Entry Point guarantee.
+                </p>
+                <p class="project-details__desc-para">
+                  Working on <strong>Charon's Corner</strong> as Programming Director taught me lessons about structuring large-scale projects for an 80+ person team. 
+                  I gained a lot of experience in architecting modular systems, particularly with UI frameworks and input management that could scale across multiple departments and use cases. 
+                  The project reinforced the importance of designing flexible abstractions that empower both designers and programmers to iterate quickly without tight coupling. 
+                  Our approach of running the studio also changed compared to last year, 
+                  and with a hands-off approach on coding individual features, 
+                  I was able to grow more as a lead plus a little individual contributing on the side.
+                </p>
               </div>
 
             </div>
