@@ -373,7 +373,141 @@
 
               <div id="anticheat" class="project-highlight-target">
                 <h3 class="project-details__content-title">Anticheat</h3>
-                <p class="project-details__desc-para">WIP, writeup coming soon.</p>
+                <h4 class="project-details__content-subtitle">Goal</h4>
+                <p class="project-details__desc-para">
+                  Maple Rhapsody featured leaderboards where submissions gave in-game currency, meaning score integrity mattered. 
+                  Since rhythm games are highly vulnerable to cheating, 
+                  I needed a system that protected leaderboard fairness while still keeping gameplay responsive. 
+                  These were the requirements: 
+                </p>
+                <ul class="project-details__desc-para">
+                  <li>Prevent obvious score manipulation and leaderboard exploits</li>
+                  <li>Maintain responsive, low-latency rhythm gameplay</li>
+                  <li>Work automatically for any beatmap without per-song logic</li>
+                  <li>Integrate with the limitations of the MSW engine</li>
+                </ul>
+                <p class="project-details__desc-para">
+                  Since the game was intended for live-service content updates, 
+                  anti-cheat protections also needed to apply automatically to newly added beatmaps.
+                </p>
+                <div class="about__img-cont">
+                  <img src="./assets/png/maple-rhapsody-invalid-score.png" alt="Maple Rhapsody Invalid Score" class="about__img" />
+                    <div class="about__img-caption">
+                      Example of a cheated score that gives the player a lot of in-game currency. 
+                      We want to prevent this from happening.
+                    </div>
+                </div>
+                <h4 class="project-details__content-subtitle">Client vs Server Authority</h4>
+                <p class="project-details__desc-para">
+                  The largest challenge was balancing game responsiveness with competitive trust. 
+                  A fully client-authoritative system would feel responsive, 
+                  but players could easily manipulate memory or modify packets to submit impossible scores. 
+                  Cheated submitted scores would award in-game currency, completely ruining the game's monetization model.
+                </p>
+                <div class="about__img-cont">
+                  <img src="./assets/png/maple-rhapsody-monetization-model.png" alt="Maple Rhapsody Monetization" class="about__img" />
+                    <div class="about__img-caption">
+                      Monetization model of Maple Rhapsody. 
+                      Allowing cheaters to easily submit scores would make earning in-game currency trivial.
+                    </div>
+                </div>
+                <p class="project-details__desc-para">
+                  However, making gameplay fully server-authoritative was also unrealistic. 
+                  Rhythm gameplay depends on immediate hit feedback, audio synchronization, and responsive controls with minimal latency. 
+                  Waiting on server validation for every note would make gameplay feel delayed and inconsistent. 
+                </p>
+                <p class="project-details__desc-para">
+                  I needed to compromise between the two and design a hybrid authority model where it was 
+                  client-authoritative for gameplay feel and server-authoritative for outcomes/rewards.
+                </p>
+                <h4 class="project-details__content-subtitle">Solution</h4>
+                <p class="project-details__desc-para">
+                  Rather than trusting a final score from the client, I moved score validation entirely to the server.
+                </p>
+                <p class="project-details__desc-para">
+                  The client handles:
+                </p>
+                <ul class="project-details__desc-para">
+                  <li>Beatmap playback</li>
+                  <li>Audio timing</li>
+                  <li>Note visuals and responsiveness</li>
+                </ul>
+                <div class="about__img-cont">
+                  <img src="./assets/png/maple-rhapsody-anticheat-client-flow.png" alt="Maple Rhapsody Anticheat Flowchart Client" class="about__img" />
+                    <div class="about__img-caption">
+                      Client flowchart
+                    </div>
+                </div>
+                <p class="project-details__desc-para">
+                  The server handles:
+                </p>
+                <ul class="project-details__desc-para">
+                  <li>Validating note submissions</li>
+                  <li>Verifying beatmap progression</li>
+                  <li>Preventing duplicate or impossible hits</li>
+                  <li>Recalculating the final score before leaderboard submission</li>
+                </ul>
+                <div class="about__img-cont">
+                  <img src="./assets/png/maple-rhapsody-anticheat-server-flow.png" alt="Maple Rhapsody Anticheat Flowchart Server" class="about__img" />
+                    <div class="about__img-caption">
+                      Server flowchart
+                    </div>
+                </div>
+                <p class="project-details__desc-para">
+                  This prevented obvious cheats like:
+                </p>
+                <ul class="project-details__desc-para">
+                  <li>Memory-edited scores</li>
+                  <li>Fake note submissions</li>
+                  <li>Duplicate hit registration</li>
+                  <li>Invalid beatmap progression</li>
+                </ul>
+                <p class="project-details__desc-para">
+                  Because the server loaded the same beatmap dataset independently, 
+                  the system worked generically across all songs without additional code changes.
+                </p>
+                <h4 class="project-details__content-subtitle">Outcome</h4>
+                <p class="project-details__desc-para">
+                  The final system successfully protected against the types of cheating most likely for the scale of the game.
+                </p>
+                <div class="about__img-cont">
+                  <img src="./assets/gif/maple-rhapsody-leaderboards.gif" alt="Maple Rhapsody Leaderboards" class="about__img" />
+                    <div class="about__img-caption">
+                      Maple Rhapsody leaderboards that depend on the integrity of valid score submissions.
+                    </div>
+                </div>
+                <p class="project-details__desc-para">
+                  Cheating is still possible with this setup though.  
+                  A determined player with exact beatmap timings could still create scripts or hotkeys to automate perfectly timed note inputs. 
+                  Solving that problem would either not be possible on the MSW platform or require significantly more aggressive detection methods. 
+                  <br>
+                  For Maple Rhapsody's target audience, a casual, mobile-focused playerbase, this tradeoff made sense. 
+                  The goal was not enterprise-level anti-cheat, 
+                  but rather to deter blatant cheating and preserve leaderboard integrity without hurting gameplay feel.
+                </p>
+              </div>
+
+              <div class="project-highlight-target">
+                <h3 class="project-details__content-title">Reflection</h3>
+                <p class="project-details__desc-para">
+                  This was my first commercial multiplayer game where I had to implement monetization systems, 
+                  and my first time working on a live service title with ongoing content constraints. 
+                  It was also my first time working in the Maplestory Worlds (MSW) engine, 
+                  which introduced several limitations that required new approaches to common gameplay and tooling problems.
+                </p>
+                <p class="project-details__desc-para">
+                  Because of this, I learned a significant amount in a short time, 
+                  especially around building systems that support long-term content and live updates. 
+                  I also worked under strict deadlines from workshop supervisors while still shipping a full game with multiple systems, 
+                  including gameplay, monetization, leaderboards, and mapping tools. 
+                  Midway through development, I had to fully pivot core design direction due to engine limitations, but still delivered the project on time.
+                </p>
+                <p class="project-details__desc-para">
+                  Looking back, this project pushed me more than any previous work and fundamentally shaped 
+                  how I think about building games under real constraints. 
+                  I'm grateful to Daquan Griffith, my team partner for bringing me onto this project, 
+                  and supervisors for their guidance and support throughout the process.
+                </p>
               </div>
             </div>
           </div>
