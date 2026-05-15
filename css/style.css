@@ -546,14 +546,16 @@ textarea {
     font-size: 1.8rem;
     line-height: 1.7;
     color: grey;
-    margin-bottom: 2rem; }
+    /* tightened spacing so paragraphs sit closer to following lists/images */
+    margin-bottom: 0.4rem; }
 
   /* Restore bullets for specific project lists that reuse paragraph styles
      (we globally disable list-style earlier; enable discs for this class only) */
   ul.project-details__desc-para {
     list-style-type: disc;
     list-style-position: outside;
-    margin: 0 0 2rem 1.6rem; /* keep paragraph spacing but indent for bullets */
+    /* small top gap to mimic a single <br> after a paragraph */
+    margin: 0.2rem 0 1.6rem 1.6rem; /* top right bottom left */
     padding-left: 0; /* left indent handled by margin */
   }
   ul.project-details__desc-para li {
@@ -572,6 +574,40 @@ textarea {
     font-size: 2.0rem; /* slightly smaller than the main content title */
     margin: 1rem 0 0.6rem; /* tighten spacing between subtitle and paragraph */
     color: #222;
+  }
+
+  /* Nested list for constraints with top-level bold items */
+  .project-details__constraints-list {
+    list-style-type: disc;
+    list-style-position: outside;
+    margin: 0 0 2rem 1.6rem;
+    padding-left: 0;
+  }
+  .project-details__constraints-list > li {
+    font-size: 1.8rem;
+    line-height: 1.7;
+    color: grey;
+    list-style-type: disc;
+    display: list-item;
+    margin-bottom: 1rem;
+    margin-left: 0;
+    font-weight: 400;
+  }
+  .project-details__constraints-list > li > ul {
+    list-style-type: circle;
+    list-style-position: outside;
+    margin: 0.4rem 0 0 1.6rem;
+    padding-left: 0;
+  }
+  .project-details__constraints-list > li > ul > li {
+    font-size: 1.8rem;
+    line-height: 1.7;
+    color: grey;
+    list-style-type: circle;
+    display: list-item;
+    margin-bottom: 0.6rem;
+    margin-left: 0;
+    font-weight: 400;
   }
 
 .project-details__tools-used {

@@ -194,7 +194,180 @@
 
               <div id="mapping-workflow" class="project-highlight-target">
                 <h3 class="project-details__content-title">Mapping Workflow</h3>
-                <p class="project-details__desc-para">WIP, writeup coming soon.</p>
+                <h4 class="project-details__content-subtitle">Goal</h4>
+                <p class="project-details__desc-para">
+                  We needed a workflow that enabled us to create new beatmaps quickly and consistently. These were our requirements:
+                </p>
+                <ul class="project-details__desc-para">
+                  <li>Allows manual placement of notes and platforms</li>
+                  <li>No code changes when shipping new songs</li>
+                  <li>Compatible with the MSW engine's limitations</li>
+                  <li>Simple to learn and easy to iterate/playtest on</li>
+                </ul>
+                <p class="project-details__desc-para">
+                  Since the game was meant to be live-service, every new beatmap needed to be added directly into existing systems without requiring any new gameplay code.
+                </p>
+                <div class="about__img-cont">
+                  <img src="./assets/gif/maple-rhapsody-map-editing.gif" alt="Map editing in Maple Rhapsody" class="about__img" />
+                    <div class="about__img-caption">
+                      Example of editing the terrain and enemy note positions inside the MSW engine. The engine was built for games similar to Maplestory.
+                    </div>
+                </div>
+                <h4 class="project-details__content-subtitle">Engine Constraints</h4>
+                <p class="project-details__desc-para">
+                  The largest challenge wasn't gameplay design, it was the MSW engine itself. 
+                  Being the <strong>first</strong> rhythm game on the platform meant we had innovate from scratch to solve our problems.
+                </p>
+                  <ul class="project-details__constraints-list">
+                  <li>
+                    <strong>Data Restrictions</strong>
+                    <ul>
+                      <li>MSW only supported CSV tables as structured gameplay data. This meant we couldn't use custom serialized formats for note charts commonly used in rhythm games.</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>No Editor Tooling</strong>
+                    <ul>
+                      <li>The engine provided no custom editor APIs or tooling framework. Unlike engines such as Unity or Unreal, we could not build custom inspectors, timeline tools, or level editors directly inside the engine.</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>Limited Audio APIs</strong>
+                    <ul>
+                      <li>Most importantly, MSW lacked the audio sampling functions necessary for frame-perfect rhythm gameplay. Without access to precise audio timing, traditional rhythm gameplay became unreliable and difficult to synchronize accurately.</li>
+                    </ul>
+                  </li>
+                </ul>
+                <h4 class="project-details__content-subtitle">Iterating the Core Gameplay</h4>
+                <p class="project-details__desc-para">
+                  Our original vision was a traditional rhythm game, where gameplay relied on precise timing with "okay", "good", and "perfect" scoring based on player timing. 
+                  However, after being shot down by our engineering supervisor for the engine lacking audio sampling, 
+                  we had to pivot to a new direction: <strong>Rhythm-Inspired Combat</strong>.
+                  <br>
+                  Instead of requiring perfect musical precision, we redesigned gameplay to be combat-driven, but rhythm-influenced. 
+                  Enemy notes were either hit or miss with little dependence on framerate.  
+                  This preserved the feel of synchronized action to Maplestory classics while reducing reliance on frame-perfect audio precision. 
+                  The pivot ultimately made the project feasible while keeping the identity of our original concept.
+                </p>
+                <div class="about__img-cont">
+                  <img src="./assets/gif/maple-rhapsody-hitting-notes.gif" alt="Hitting notes in Maple Rhapsody" class="about__img" />
+                    <div class="about__img-caption">
+                      Hitting enemy notes in-game. 
+                      A guide (blue orb) moves from enemy to enemy following the beat of the song. 
+                      If the guide overlaps with an enemy note, the enemy becomes vulnerable, allowing the player to hit.
+                    </div>
+                </div>
+                <h4 class="project-details__content-subtitle">Building the Beatmap Workflow</h4>
+                <p class="project-details__desc-para">
+                  Even after redesigning gameplay, we still needed an efficient way to create beatmaps. 
+                  Instead of building an editor from scratch, I leveraged an existing ecosystem: <strong>the osu! beatmap editor</strong>. 
+                  Using the editor, we:
+                </p>
+                <ul class="project-details__desc-para">
+                  <li>Calibrated BPM and timing offsets</li>
+                  <li>Hand-timed gameplay notes</li>
+                  <li>Planned single-hit and hold-note sequences</li>
+                </ul>
+                <div class="about__img-cont">
+                  <img src="./assets/png/maple-rhapsody-osu-timing.png" alt="Calibrating in the osu! editor" class="about__img" />
+                    <div class="about__img-caption">
+                      Calibrating the BPM and offset using the built-in osu! editor tool.
+                    </div>
+                </div>
+                <div class="about__img-cont">
+                  <img src="./assets/gif/maple-rhapsody-osu-map-timing.gif" alt="Timing notes in the osu! editor" class="about__img" />
+                      <div class="about__img-caption">
+                      Planned single-hit notes and hold-notes in the osu! editor. Positioning at this stage wasn't important since final placement was handled later inside the MSW engine.
+                    </div>
+                </div>
+                <p class="project-details__desc-para">
+                  This gave us an easy editing experience without needing to build internal tooling. 
+                  I then wrote a custom Python script that extracted our osu! beatmap data and 
+                  transformed it into an MSW-compatible CSV format. The parser extracted: 
+                </p>
+                <ul class="project-details__constraints-list">
+                  <li>
+                    Note type
+                    <ul>
+                      <li>0 - Single tap note</li>
+                      <li>1 - Hold start note</li>
+                      <li>2 - Hold end note</li>
+                    </ul>
+                  </li>
+                  <li>Millisecond timing values</li>
+                  <li>Ordered note data for runtime playback</li>
+                </ul>
+                <div class="about__img-cont">
+                  <img src="./assets/png/maple-rhapsody-beatmap-dataset.png" alt="CSV imported into MSW engine" class="about__img" />
+                    <div class="about__img-caption">
+                      Final parsed CSV that was imported into the MSW engine. 
+                      Note types 3 and 4 were for double-tap notes which were added in later iterations.
+                    </div>
+                </div>
+                <h4 class="project-details__content-subtitle">Converting Data Into Gameplay</h4>
+                <p class="project-details__desc-para">
+                  Once imported into MSW, beatmap data existed only as timing values inside a CSV table. 
+                  The next challenge was turning those values into physical gameplay objects. 
+                  <br>
+                  I created a <code>BeatmapManager</code> system that loaded beatmap CSV tables and interpreted note timing data at runtime. 
+                  However, timing alone wasn't enough since gameplay also required actual note objects positioned in the world along with platforms.
+                </p>
+                <div class="about__img-cont">
+                  <img src="./assets/png/maple-rhapsody-beatmapmanager-flow.png" alt="Beatmap manager flow" class="about__img" />
+                    <div class="about__img-caption">
+                      Beatmap timing data from our CSV is read by BeatmapManager. 
+                      Then the corresponding in-scene note objects and their positions are paired with the timings, 
+                      helping the guide move from note-to-note to the beat.
+                    </div>
+                </div>
+                <p class="project-details__desc-para">
+                  MSW handled scene editing poorly and made mass object creation difficult. 
+                  Every beatmap required the exact number of scene objects matching the note count 
+                  and manually creating and naming hundreds of objects was not scalable.
+                  <br>
+                  Because MSW map (scene) files were editable JSON files, I wrote another Python script that:
+                </p>
+                <ul class="project-details__desc-para">
+                  <li>Spawned the correct number of note objects</li>
+                  <li>Instantiated prefab references automatically</li>
+                  <li>Named objects sequentially</li>
+                  <li>Preserved ordering for <code>BeatmapManager</code> parsing</li>
+                </ul>
+                <div class="about__img-cont">
+                  <img src="./assets/png/maple-rhapsody-note-objects.png" alt="Auto-placed enemy notes" class="about__img" />
+                    <div class="about__img-caption">
+                      Enemy notes objects from the Python script to eliminate repetitive copy/pasting and renaming. 
+                      I would position these game objects within the map while also using the built-in editor tooling for creating platforms.
+                    </div>
+                </div>
+                <p class="project-details__desc-para">
+                  To minimize timing drift, I based note behavior on absolute millisecond timestamps. 
+                  Instead of calculating timing relative to the previous note, the system compared the current song timer with absolute note timestamp. 
+                  This prevented timing accumulation errors and reduced frame-dependent inaccuracies.
+                </p>
+                <h4 class="project-details__content-subtitle">Outcome</h4>
+                <p class="project-details__desc-para">
+                  By combining external tools with custom scripts, 
+                  I created a workflow that successfully worked around the limitations of the MSW engine. 
+                  The final pipeline enabled: 
+                </p>
+                <ul class="project-details__desc-para">
+                  <li>Fast beatmap creation</li>
+                  <li>No gameplay code changes for new songs</li>
+                  <li>Designer-friendly iteration</li>
+                  <li>Reliable note timing</li>
+                  <li>Supervisor approval after a major design pivot</li>
+                </ul>
+                <p class="project-details__desc-para">
+                  Most importantly, the workflow transformed beatmap creation from a manual engineering task into a repeatable pipeline, 
+                  making rhythm-combat gameplay feasible in an engine that was never designed for it.
+                </p>
+                <div class="about__img-cont">
+                  <img src="./assets/png/maple-rhapsody-mapping-workflow.png" alt="Maple Rhapsody Mapping Workflow" class="about__img" />
+                    <div class="about__img-caption">
+                      Final Maple Rhapsody mapping workflow flowchart.
+                    </div>
+                </div>
               </div>
 
               <div id="anticheat" class="project-highlight-target">
