@@ -37,6 +37,21 @@ headerLogoConatiner.addEventListener('click', () => {
   location.href = 'index.html'
 })
 
+const projectToggleMap = {
+  mw4: document.querySelector('[data-project-toggle="mw4"]'),
+}
+
+const projectParams = new URLSearchParams(window.location.search)
+
+Object.entries(projectToggleMap).forEach(([projectKey, projectElement]) => {
+  if (!projectElement) return
+
+  const projectParamValue = projectParams.get(projectKey)
+  const isEnabled = projectParamValue !== null && projectParamValue.toLowerCase() === 'true'
+  projectElement.classList.toggle('project-toggle--hidden', !isEnabled)
+  projectElement.hidden = !isEnabled
+})
+
 // Back to top button behavior
 const backToTopBtn = document.getElementById('backToTop')
 if (backToTopBtn) {
