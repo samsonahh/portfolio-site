@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Samson's Portfolio</title>
+    <meta name="description" content="Samson's Developer Portfolio Site" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__content">
+        <div class="header__logo-container">
+          <div class="header__logo-img-cont">
+            <img src="./assets/jpeg/samson-headshot.jpg" alt="Samson Wu" class="header__logo-img" />
+          </div>
+          <span class="header__logo-sub">Samson Wu</span>
+        </div>
+        <div class="header__main">
+          <ul class="header__links">
+            <li class="header__link-wrapper"><a href="./index.html#projects" class="header__link">Projects</a></li>
+            <li class="header__link-wrapper"><a href="./index.html#about" class="header__link">About</a></li>
+            <li class="header__link-wrapper"><a href="./index.html#contact" class="header__link">Contact</a></li>
+          </ul>
+          <div class="header__main-ham-menu-cont">
+            <img src="./assets/svg/ham-menu.svg" alt="Open menu" class="header__main-ham-menu" />
+            <img src="./assets/svg/ham-menu-close.svg" alt="Close menu" class="header__main-ham-menu-close d-none" />
+          </div>
+        </div>
+      </div>
+      <div class="header__sm-menu">
+        <div class="header__sm-menu-content">
+          <ul class="header__sm-menu-links">
+            <li class="header__sm-menu-link"><a href="./index.html#projects">Projects</a></li>
+            <li class="header__sm-menu-link"><a href="./index.html#about">About</a></li>
+            <li class="header__sm-menu-link"><a href="./index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="project-details" aria-labelledby="mw4-title">
+        <div class="main-container">
+          <div class="project-details__content">
+            <div class="project-cs-hero__video-cont">
+              <iframe
+                class="project-cs-hero__video project-cs-hero__video--embed"
+                src="https://www.youtube.com/embed/AEl48JkVqZ0"
+                title="Call of Duty: Warzone (MW4) showcase video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="about__img-caption">Call of Duty: Modern Warfare 4 - Warzone Trailer</div>
+            <div class="project-details__content-main">
+              <div class="project-details__desc">
+                <h1 class="project-details__content-title" id="mw4-title">Call of Duty: Warzone (MW4) - Overview</h1>
+                <p class="project-details__desc-para">
+                  Worked on MW4's multiplayer FPS Battle Royale, contributing to production UI features. 
+                  Collaborated across engineering, design, and art teams to implement UI improvements, resolve bugs, and support gameplay feature development.
+                </p>
+                <ul class="project-meta">
+                  <li><strong>Role:</strong> Gameplay UI Engineer Intern</li>
+                  <li><strong>Engine:</strong> Proprietary (C++, Lua)</li>
+                  <li><strong>Platform:</strong> PC / PS5 / Xbox / Switch 2</li>
+                  <li><strong>Duration:</strong> 3 months</li>
+                  <li><strong>Studio:</strong> <a href="https://www.ravensoftware.com/" class="link--underline" target="_blank" rel="noopener noreferrer">Raven Software</a></li>
+                  <li><strong>Link:</strong> <a href="https://www.callofduty.com/modernwarfare4" class="link--underline" target="_blank" rel="noopener noreferrer">Game Homepage</a></li>
+                </ul>
+                <h2 class="project-details__content-title">Technologies</h2>
+                <div class="skills">
+                  <div class="skills__skill">C++</div>
+                  <div class="skills__skill">Lua</div>
+                  <div class="skills__skill">Proprietary Engine</div>
+                  <div class="skills__skill">Proprietary Language</div>
+                  <div class="skills__skill">Jira</div>
+                  <div class="skills__skill">Perforce</div>
+                </div>
+                <h2 class="project-details__content-title">My Role</h2>
+                <p class="project-details__desc-para">
+                  As a Gameplay UI Engineer Intern, I supported production UI and gameplay feature development in collaboration with engineering, design, and art. 
+                  I fixed dozens of bugs that were part of various UI like the tacmap, buy station, custom loadout select, in-game HUD, lootcards, playlist select, and more.
+                </p>
+                <br>
+                <p class="project-details__desc-para">
+                  Alongside the bug fixes, I also owned engineering behind Weapon Augments UI from start to finish.
+                </p>
+                <h2 class="project-details__content-title">Weapon Augments UI</h2>
+                <p class="project-details__desc-para">
+                  Weapon Augments seemed like a straightforward feature at first, but implementing it across many areas of the UI revealed different edge cases in each context. 
+                  Adapting it to those variations gave me broad exposure to the game's UI and taught me to account for how the same feature can behave differently across screens.
+                </p>
+                <br>
+                <p class="project-details__desc-para">
+                  <strong>DISCLAIMER:</strong> I'm not allowed to display the specifics about the code or implementation due to NDA restrictions.
+                </p>
+
+                <div class="project-highlights">
+                  <div class="project-highlight" id="highlight-1">
+                    <h3 class="project-highlight__title">Weapon HUD</h3>
+                    <!-- Replace the video source and caption with your feature media and description. -->
+                    <video class="project-cs-hero__video" controls preload="metadata">
+                      <source src="./assets/video/mw4-augment-animation.mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                    <div class="about__img-caption">I added the Weapon Augment's hexagon indicator and hooked up logic to fill it and trigger the animation.</div>
+                  </div>
+                </div>
+
+                <div class="project-highlights">
+                  <div class="project-highlight" id="highlight-2">
+                    <h3 class="project-highlight__title">Dropped Weapons</h3>
+                    <img src="./assets/png/mw4-augment-lootcard.png" alt="Weapon augments in dropped weapon lootcards" class="project-highlight__gif" />
+                    <div class="about__img-caption">
+                      I added the Weapon Augment's hexagon indicator and hooked up logic to fill it.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="project-highlights">
+                  <div class="project-highlight" id="highlight-3">
+                    <h3 class="project-highlight__title">Inventory</h3>
+                    <img src="./assets/png/mw4-augment-inventory.png" alt="Weapon augments in the inventory" class="project-highlight__gif" />
+                    <div class="about__img-caption">
+                      I added the Weapon Augment's hexagon indicator and hooked up logic to fill it for each weapon inventory slot and 
+                      made the name of the augment appear next to the weapon's name.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="project-highlights">
+                  <div class="project-highlight" id="highlight-4">
+                    <h3 class="project-highlight__title">Buy Station</h3>
+                    <img src="./assets/png/mw4-augment-buystation.png" alt="Weapon augments in the buy station" class="project-highlight__gif" />
+                    <div class="about__img-caption">
+                      I handled buy station button and text color changes depending on the item, owned count, 
+                      and equipped / compatibility warnings.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="project-highlights">
+                  <div class="project-highlight" id="highlight-5">
+                    <h3 class="project-highlight__title">Killcam</h3>
+                    <img src="./assets/png/mw4-augment-killcam.png" alt="Weapon augments in the killcam" class="project-highlight__gif" />
+                    <div class="about__img-caption">
+                      I added the Weapon Augment's hexagon idicator and hooked up logic to fill it.
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="main-footer">
+      <div class="main-container">
+        <div class="main-footer__upper">
+          <div class="main-footer__row main-footer__row-1">
+            <h2 class="heading heading-sm main-footer__heading-sm"><span>Socials</span></h2>
+            <div class="main-footer__social-cont">
+              <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/samsonahh/"><img class="main-footer__icon" src="./assets/png/linkedin-ico.png" alt="LinkedIn" /></a>
+              <a target="_blank" rel="noreferrer" href="https://github.com/samsonahh"><img class="main-footer__icon" src="./assets/png/github-ico.png" alt="GitHub" /></a>
+            </div>
+          </div>
+          <div class="main-footer__row main-footer__row-2">
+            <h2 class="heading heading-sm text-lt">Samson Wu's Portfolio</h2>
+            <p class="main-footer__short-desc">Don't forget to check out my projects!</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <button id="backToTop" class="back-to-top d-none" aria-label="Go to top">&#8679;</button>
+    <script src="./index.js"></script>
+  </body>
+</html>

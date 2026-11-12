@@ -507,6 +507,10 @@ textarea {
     background: #000;
   }
 
+  .project-cs-hero__video--embed {
+    aspect-ratio: 16 / 9;
+  }
+
   @media only screen and (max-width: 56.25em) {
     .project-cs-hero__video-cont { margin: 1.6rem auto; }
   }
